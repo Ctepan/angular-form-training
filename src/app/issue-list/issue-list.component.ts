@@ -10,6 +10,7 @@ import { IssuesService } from '../issues.service';
 export class IssueListComponent implements OnInit {
   issues: Issue[] = [];
   showReportIssue = false;
+  selectedEditIssue: Issue | null = null;
   selectedIssue: Issue | null = null;
 
   constructor(private issueService: IssuesService) { }
@@ -20,6 +21,11 @@ export class IssueListComponent implements OnInit {
 
   onCloseReport() {
     this.showReportIssue = false;
+    this.getIssues();
+  }
+
+  onCloseEdit() {
+    this.selectedEditIssue = null;
     this.getIssues();
   }
 

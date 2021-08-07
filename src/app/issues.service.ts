@@ -22,6 +22,11 @@ export class IssuesService {
     this.issues[index] = selectedIssue;
   }
 
+  updateIssue(issue: Issue) {
+    const index = this.issues.findIndex(i => i.issueNo === issue.issueNo);
+    this.issues[index] = issue;
+  }
+
   createIssue(issue: Issue) {
     issue.issueNo = this.issues.length + 1;
     this.issues.push(issue);
